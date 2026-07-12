@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>iPad 楽譜めくり</title>
-    <link rel="stylesheet" href="style.css">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>iPad 楽譜ライブラリ</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="menu-container">
-        <h2>楽曲リスト</h2>
-        <ul id="song-list">
-            </ul>
+        <h2>📋 プレイリストから演奏</h2>
+        <ul id="section-playlists" class="menu-list"></ul>
+
+        <h2 style="margin-top: 40px;">🎵 ライブラリ（フォルダ別）</h2>
+        <ul id="section-songs" class="menu-list"></ul>
     </div>
 
 <div id="score-container" class="hidden">
         <div id="control-bar">
-            <button id="btn-back">曲選択へ戻る</button>
-            <span id="page-info">1 / 1</span>
+            <button id="btn-back">楽曲リストへ</button>
+            <span id="page-info">曲名 1 / 1</span>
         </div>
         
         <button id="btn-page-prev" class="nav-button">前の頁</button>
@@ -31,6 +33,6 @@
         <img id="score-image" src="" alt="楽譜">
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
 </body>
 </html>

@@ -16,9 +16,19 @@ body {
 
 /* メニュー画面 */
 #menu-container {
-    padding: 40px;
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    
+    /* 💡 ここを追加・修正します */
+    height: 100vh;           /* 画面の縦幅いっぱいに合わせる */
+    overflow-y: auto;        /* 中身がはみ出た場合に自動で縦スクロールさせる */
+    -webkit-overflow-scrolling: touch; /* iPadでのスクロールをなめらかにする（慣性スクロール） */
+}
+
+/* （参考）リスト全体の余白も少し調整しておくと見やすくなります */
+.menu-list {
+    margin-bottom: 30px;
+    padding: 0;
 }
 
 #song-list li {
@@ -42,17 +52,41 @@ body {
     align-items: center;
 }
 
+/* 楽譜画面上部のコントロール表示の修正 */
 #control-bar {
-    position: absolute;
+    position: absolute;  /* 💡楽譜画像の上に重ねて配置する設定 */
     top: 0;
+    left: 0;
     width: 100%;
-    height: 50px;
-    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 20px;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    z-index: 10;
+    z-index: 10;         /* 最前面に表示 */
+    
+    /* 💡【重要】背景の黒い帯を完全に透明（消去）にします */
+    background: transparent; 
+}
+
+/* 楽曲リストへ戻るボタンの見た目（見にくくならないように少し整えます） */
+#btn-back {
+    background: rgba(0, 0, 0, 0.6); /* ボタンの背景だけを薄い半透明の黒にして押しやすく */
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 曲名とページ数のテキスト */
+#page-info {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    /* 💡白い楽譜と重なっても文字が読めるように、文字の周りにうっすら影（フチ取り）をつけます */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), -2px -2px 4px rgba(0, 0, 0, 0.8); 
 }
 
 button {
@@ -110,4 +144,28 @@ button {
 
 #btn-page-next {
     right: 40px; /* 右側に配置 */
+}
+
+/* 最初の曲・最後の曲でボタンを押せなくするスタイル */
+.nav-button.disabled {
+    background: rgba(255, 255, 255, 0.05);
+    color: #555555;
+    border-color: #333333;
+    pointer-events: none; /* タップを無効化 */
+}
+.menu-list {
+    margin-bottom: 20px;
+}
+
+.menu-list li {
+    background: #2a2a2a;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    list-style: none;
+}
+.menu-list li:active {
+    background: #444444;
 }
