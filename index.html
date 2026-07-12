@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>iPad 楽譜めくり</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+    <div id="menu-container">
+        <h2>楽曲リスト</h2>
+        <ul id="song-list">
+            </ul>
+    </div>
+
+<div id="score-container" class="hidden">
+        <div id="control-bar">
+            <button id="btn-back">曲選択へ戻る</button>
+            <span id="page-info">1 / 1</span>
+        </div>
+        
+        <button id="btn-page-prev" class="nav-button">前の頁</button>
+        <button id="btn-page-next" class="nav-button">次の頁</button>
+
+        <div id="tap-left" class="tap-zone"></div>
+        <div id="tap-right" class="tap-zone"></div>
+
+        <img id="score-image" src="" alt="楽譜">
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

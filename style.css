@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none; /* 演奏中の誤選択防止 */
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* メニュー画面 */
+#menu-container {
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#song-list li {
+    background: #2a2a2a;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    list-style: none;
+}
+
+/* 楽譜表示画面 */
+#score-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#control-bar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 10;
+}
+
+button {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#score-image {
+    max-width: 100%;
+    max-height: 100vh;
+    object-fit: contain;
+}
+
+/* 左右のタップ領域（透明） */
+.tap-zone {
+    position: absolute;
+    top: 50px;
+    height: calc(100vh - 50px);
+    width: 30vw;
+    z-index: 5;
+    /* debug用: background: rgba(255,0,0,0.1); */
+}
+#tap-left { left: 0; }
+#tap-right { right: 0; }
+
+.hidden { display: none !important; }
+
+/* 譜めくりボタンのスタイル */
+.nav-button {
+    position: absolute;
+    bottom: 40px; /* iPadの下部から少し浮かせます */
+    padding: 20px 30px;
+    font-size: 24px; /* iPadでも押しやすい大きめの文字 */
+    background: rgba(255, 255, 255, 0.2); /* 半透明の白 */
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    z-index: 10; /* 最前面に表示 */
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+/* タップした瞬間に少し濃くする効果 */
+.nav-button:active {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#btn-page-prev {
+    left: 40px; /* 左側に配置 */
+}
+
+#btn-page-next {
+    right: 40px; /* 右側に配置 */
+}
